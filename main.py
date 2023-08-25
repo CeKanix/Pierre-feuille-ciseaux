@@ -12,7 +12,7 @@ ordi_win = 0
 rejouer = ""
 
 while True:
-    #Relance le jeu ou non
+    # Relance le jeu ou non
     if rejouer == "n":
         break
 
@@ -41,7 +41,6 @@ while True:
             print("Vous avez perdu... La pierre casse les ciseaux")
             ordi_win += 1
 
-
     if valeur_ordi == "feuille":
         if user_choice == "ciseaux":
             print("Vous avez gagné! Les ciseaux coupent la feuille...")
@@ -60,12 +59,18 @@ while True:
             print("Vous avez perdu... Les ciseaux coupent la feuille")
             ordi_win += 1
 
-    #Indicateur de victoire
-    print(f"L'ordianteur à gagné {ordi_win}X...")
+    # Indicateur de victoire
     print(f"Vous avez gagné {user_win}X...")
+    print(f"L'ordianteur à gagné {ordi_win}X...")
 
-    #Demande si le joueur veut rejouer
-    while rejouer not in ["y", "n",]:
+    # Calcul du ration win/loose
+    totalPartie = user_win + ordi_win
+    ratio = (user_win * 100) / totalPartie
+    print(f"Votre ratio est de {ratio}% de victoires")
+
+    # Demande si le joueur veut rejouer
+    rejouer = ""
+    while rejouer not in ["y", "n", ]:
         rejouer = input("Voulez-vous rejouez? (y/n)").lower()
         print(rejouer)
         if rejouer == "y":
